@@ -12,7 +12,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+		<cloudhub.businessGroupId>aa9628f9-5b5e-41f9-b8c0-156237c466be</cloudhub.businessGroupId>
+		<cloudhub.workerType>0.1</cloudhub.workerType>
+		<cloudhub.workers>1</cloudhub.workers>
 		<app.runtime>4.6.1</app.runtime>
 		<mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
 	</properties>
@@ -29,6 +31,31 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+				<cloudHubDeployment>
+                                <artifact>target/${project.artifactId}-${project.version}-${mule.app.classifier}.jar</artifact>
+                                <uri>https://anypoint.mulesoft.com</uri>
+                                <businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
+                                <businessGroup>Solution Services Consultancy</businessGroup>
+                                <environment>${env}</environment>
+                                <applicationName>${appname}</applicationName>
+                                <muleVersion>${mule.version}</muleVersion>
+                                <username>${anypoint.username}</username>
+                                <password>${anypoint.password}</password>
+                                <workerType>${vCore}</workerType>
+                                <workers>${workers}</workers>
+                                <objectStoreV2>true</objectStoreV2>
+<!--                                 <properties> -->
+<!--                                     <mule.env>${mule.environment}</mule.env> -->
+<!--                                     <mule.key>${mule.encryptionKey}</mule.key> -->
+<!--                                     <anypoint.platform.client_id>${anypoint.platform.clientId}</anypoint.platform.client_id> -->
+<!--                                     <anypoint.platform.client_secret>${anypoint.platform.clientSecret}</anypoint.platform.client_secret> -->
+<!--                                     <anypoint.platform.config.analytics.agent.enabled>${anypoint.platform.enableMonitoring}</anypoint.platform.config.analytics.agent.enabled> -->
+<!--                                     <anypoint.platform.visualizer.layer>${anypoint.platform.visualizerLayer}</anypoint.platform.visualizer.layer> -->
+<!--                                     <anypoint.platform.gatekeeper>${anypoint.platform.apiManagerStatus}</anypoint.platform.gatekeeper> -->
+<!--                                 </properties> -->
+                            </cloudHubDeployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
