@@ -33,6 +33,7 @@
 				<extensions>true</extensions>
 				<configuration>
 				<cloudHubDeployment>
+				
                                 <artifact>target/${project.artifactId}-${project.version}-${mule.app.classifier}.jar</artifact>
                                 <uri>https://anypoint.mulesoft.com</uri>
                                 <businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
